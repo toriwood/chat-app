@@ -19,6 +19,10 @@ group :development, :test do
   gem 'pry', '~> 0.12.2'
 end
 
+group :test do
+  gem 'shoulda-matchers', '~> 4.1', '>= 4.1.2'
+end
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
