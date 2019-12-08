@@ -4,6 +4,7 @@ RSpec.describe User, type: :model do
   describe 'relationships' do
     it { should have_many(:user_conversations) }
     it { should have_many(:conversations).through(:user_conversations) }
+    it { should have_many(:messages) }
   end
 
   describe 'validations' do

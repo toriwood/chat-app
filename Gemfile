@@ -22,6 +22,7 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 4.1', '>= 4.1.2'
   gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
+  gem 'action-cable-testing', '~> 0.3.0'
 end
 
 group :development do
