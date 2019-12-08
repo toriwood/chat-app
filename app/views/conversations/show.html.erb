@@ -1,3 +1,5 @@
+<div class="conversation-details" data-conversation-id="<%= @conversation.id %>"></div>
+
 <h1>Chat Participants</h1>
 <% @conversation.users.each do |user| %>
   <%= user.username %>
