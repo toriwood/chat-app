@@ -1,0 +1,13 @@
+<h1>Pick a conversation to join:</h1>
+
+<div>
+  <% if @conversations.present? %>
+    <% @conversations.each do |conversation| %>
+      <%= link_to conversation.id, conversation_path(conversation) %>
+    <% end %>
+  <% else %>
+    <div>
+      You haven't been invited to any conversations yet :(
+    </div>
+  <% end %>
+</div>
