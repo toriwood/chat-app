@@ -10,10 +10,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rspec-rails', '~> 3.5'
+gem 'jquery-rails', '~> 4.1'
 
 group :development, :test do
   gem 'pry', '~> 0.12.2'
@@ -21,6 +21,7 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 4.1', '>= 4.1.2'
+  gem 'factory_bot_rails', '~> 5.0', '>= 5.0.2'
 end
 
 group :development do
