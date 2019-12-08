@@ -1,21 +1,30 @@
-<div class="conversation-details" data-conversation-id="<%= @conversation.id %>"></div>
+<div>
+  <div class="conversation-details" data-conversation-id="<%= @conversation.id %>"></div>
 
-<h1>Chat Participants</h1>
-<% @conversation.users.each do |user| %>
-  <%= user.username %>
-<% end %>
-
-<h1>Conversation</h1>
-<div class="conversation-table-<%= @conversation.id %>">
-  <% @conversation.messages.each do |message| %>
-  <div class="message">
-    <div class="message-sender">
-      <%= "#{message.user.username}"%> at
-      <span class="message-timestamp">
-        <%= "#{message.created_at}" %>
-      </span>
-    </div>
-    <div class="message-text"><%= message.text %></div>
+  <div class="container-sm users-table">
+    <h5>Users in this chat:</h5>
+    <% @conversation.users.each do |user| %>
+        <%= "#{user.username}"%><br>
+    <% end %>
   </div>
-  <% end %>
+
+  <div class="conversation-table-<%= @conversation.id %> container-lg conversation-table">
+    <div class="messages">
+      <% @conversation.messages.each do |message| %>
+        <div class="message container-sm">
+          <div>
+            <span class="message-sender">
+              <%= "#{message.user.username}"%>
+            </span>
+            at
+            <span class="message-timestamp">
+              <%= "#{message.created_at.in_time_zone.strftime("%I:%M%p")}" %> on
+              <%= "#{message.created_at.in_time_zone.strftime("%b %-d")}" %>
+            </span>
+          </div>
+          <div class="message-text"><%= message.text %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

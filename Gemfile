@@ -14,6 +14,7 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rspec-rails', '~> 3.5'
 gem 'jquery-rails', '~> 4.1'
+gem 'bootstrap', '~> 4.4.1'
 
 group :development, :test do
   gem 'pry', '~> 0.12.2'

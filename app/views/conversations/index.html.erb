@@ -1,13 +1,18 @@
-<h1>Pick a conversation to join:</h1>
+<div class="container">
 
-<div>
-  <% if @conversations.present? %>
-    <% @conversations.each do |conversation| %>
-      <%= link_to conversation.id, conversation_path(conversation) %>
+<h3>Join a conversation</h3>
+  <div>
+    <% if @conversations.present? %>
+      <% @conversations.each do |conversation| %>
+      <div class="conversation-row">
+        <%= link_to "Join", conversation_path(conversation), class: "conversation-button btn btn-info" %>
+        <%= "Users to chat with: #{conversation.users.map(&:username).join(', ')}" %>
+      </div>
+      <% end %>
+    <% else %>
+      <div>
+        You haven't been invited to any conversations yet :(
+      </div>
     <% end %>
-  <% else %>
-    <div>
-      You haven't been invited to any conversations yet :(
-    </div>
-  <% end %>
+  </div>
 </div>

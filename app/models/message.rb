@@ -14,7 +14,8 @@ class Message < ApplicationRecord
     {
       conversation_id: self.conversation.id,
       sender_name: self.user.username,
-      sent_at: self.created_at,
+      sent_at_date: self.created_at.in_time_zone.strftime("%b %-d"),
+      sent_at_time: self.created_at.in_time_zone.strftime("%I:%M%p"),
       message_text: self.text
     }
   end
