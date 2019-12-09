@@ -31,7 +31,8 @@ RSpec.describe Message, type: :model do
         {
           conversation_id: message.conversation_id,
           sender_name: message.user.username,
-          sent_at: message.created_at,
+          sent_at_date: message.created_at.in_time_zone.strftime("%b %-d"),
+          sent_at_time: message.created_at.in_time_zone.strftime("%I:%M%p"),
           message_text: message.text
         }
       )
