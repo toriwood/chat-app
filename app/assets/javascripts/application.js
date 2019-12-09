@@ -17,3 +17,9 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  if ($('.conversation-table').length) {
+    $('.conversation-table').scrollTop($('.conversation-table')[0].scrollHeight);
+  }
+});

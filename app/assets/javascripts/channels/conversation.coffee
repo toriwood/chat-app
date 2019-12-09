@@ -1,5 +1,5 @@
 $(document).on 'turbolinks:load', ->
-  $('div[data-conversation-id]' ).each ->
+  $('div[data-conversation-id]').each ->
     conversationId = $(this).data('conversation-id')
     App.cable.subscriptions.create {
       channel: 'ConversationChannel'
@@ -7,6 +7,7 @@ $(document).on 'turbolinks:load', ->
     }, received: (data) ->
       append_message = (classname, content) ->
         $("#{classname} .messages").append content
+        $("#{classname}").scrollTop($("#{classname}")[0].scrollHeight);
         $(".chat-input").val('')
 
       format_message = (data) ->
