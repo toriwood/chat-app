@@ -30,12 +30,12 @@ Start up the rails server and navigate to `localhost:3000` in the browser:
 rails s
 ```
 You'll be presented with a list of usernames to choose from. Once you pick a user name, you'll see the conversations that user is associated with:
-![User Screen](public/users.png)
+<br><img src="public/users.png" width="30%">
 
-![Conversations Screen](public/conversations.png)
+<img src="public/conversations.png" width="30%">
 
-Then upon clicking on a conversation, you'll be redirected to the conversation window, where you can see other users in this conversation and previous messages. You can also send and receive messages from fellow participants in the chat:
-![Conversation Screen](public/conversation_window.png)
+Upon clicking on a conversation, you'll be redirected to the conversation window, where you can see other users in this conversation and previous messages. You can also send and receive messages from fellow participants in the chat:
+<br><img src="public/conversation_window.png" width="60%">
 
 ## Design
 The app has a few core models:
