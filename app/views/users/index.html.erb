@@ -1,0 +1,17 @@
+<div class="container">
+
+<h3>Pick a username to log in:</h3>
+  <div>
+    <% if @users.present? %>
+      <% @users.each do |user| %>
+      <div class="user-row">
+        <%= link_to "#{user.username}", conversations_path(user_id: user.id), class: "btn btn-info" %>
+      </div>
+      <% end %>
+    <% else %>
+      <div>
+        There aren't any users yet :(
+      </div>
+    <% end %>
+  </div>
+</div>

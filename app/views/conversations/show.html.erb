@@ -4,26 +4,38 @@
   <div class="container-sm users-table">
     <h5>Users in this chat:</h5>
     <% @conversation.users.each do |user| %>
-        <%= "#{user.username}"%><br>
+      <%= "#{user.username}"%><%= " (You)" if @user_id == "#{user.id}" %><br>
     <% end %>
   </div>
 
-  <div class="conversation-table-<%= @conversation.id %> container-lg conversation-table">
-    <div class="messages">
-      <% @conversation.messages.each do |message| %>
-        <div class="message container-sm">
-          <div>
-            <span class="message-sender">
-              <%= "#{message.user.username}"%>
-            </span>
-            at
-            <span class="message-timestamp">
-              <%= "#{message.created_at.in_time_zone.strftime("%I:%M%p")}" %> on
-              <%= "#{message.created_at.in_time_zone.strftime("%b %-d")}" %>
-            </span>
+  <div class="container-lg conversation-container">
+    <div class="conversation-table-<%= @conversation.id %> conversation-table">
+      <div class="messages">
+        <% @conversation.messages.each do |message| %>
+          <div class="message container-sm">
+            <div>
+              <span class="message-sender">
+                <%= "#{message.user.username}"%>
+              </span>
+              at
+              <span class="message-timestamp">
+                <%= "#{message.created_at.in_time_zone.strftime("%I:%M%p")}" %> on
+                <%= "#{message.created_at.in_time_zone.strftime("%b %-d")}" %>
+              </span>
+            </div>
+            <div class="message-text"><%= message.text %></div>
           </div>
-          <div class="message-text"><%= message.text %></div>
-        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="chat-form">
+      <%= form_for @conversation, remote: true, url: { action: "update", id: @conversation} do |f| %>
+      <%= f.hidden_field :id %>
+      <%= f.fields_for :message do |f| %>
+        <%= f.hidden_field :user_id, value: @user_id %>
+        <%= f.text_field :text, required: true, class: 'chat-input' %>
+      <% end %>
+      <%= f.submit "Send", class: 'btn btn-info' %>
       <% end %>
     </div>
   </div>
