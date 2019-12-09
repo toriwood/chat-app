@@ -19,21 +19,23 @@ ActionCable uses redis locally, you'll need to install that if you don't already
 ```shell
 brew install redis
 ```
-and then
+and then start it up with:
 ```shell
 redis-server
 ```
-to start it up.
 
-Finally, start up the rails server and navigate to `localhost:3000` in the browser:
+## User Guide
+Start up the rails server and navigate to `localhost:3000` in the browser:
 ```shell
 rails s
 ```
+You'll be presented with a list of usernames to choose from. Once you pick a user name, you'll see the conversations that user is associated with:
+![User Screen](public/users.png)
 
-## User Guide
-Navigate to `localhost:3000`. You'll be presented with a list of usernames to choose from. Once you pick a user name, you'll see the conversations that user is associated with:
+![Conversations Screen](public/conversations.png)
 
 Then upon clicking on a conversation, you'll be redirected to the conversation window, where you can see other users in this conversation and previous messages. You can also send and receive messages from fellow participants in the chat:
+![Conversation Screen](public/conversation_window.png)
 
 ## Design
 The app has a few core models:
