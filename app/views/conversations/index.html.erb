@@ -5,7 +5,11 @@
     <% if @conversations.present? %>
       <% @conversations.each do |conversation| %>
       <div class="conversation-row">
-        <%= link_to "Join", conversation_path(conversation), class: "conversation-button btn btn-info" %>
+        <% if @user_id.present? %>
+          <%= link_to "Join", conversation_path(conversation, user_id: @user_id), class: "conversation-button btn btn-info" %>
+        <% else %>
+          <%= link_to "Join", conversation_path(conversation), class: "conversation-button btn btn-info" %>
+        <% end %>
         <%= "Users to chat with: #{conversation.users.map(&:username).join(', ')}" %>
       </div>
       <% end %>

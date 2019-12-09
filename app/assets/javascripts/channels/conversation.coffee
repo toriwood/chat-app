@@ -1,4 +1,4 @@
-$ ->
+$(document).on 'turbolinks:load', ->
   $('div[data-conversation-id]' ).each ->
     conversationId = $(this).data('conversation-id')
     App.cable.subscriptions.create {
@@ -7,6 +7,7 @@ $ ->
     }, received: (data) ->
       append_message = (classname, content) ->
         $("#{classname} .messages").append content
+        $(".chat-input").val('')
 
       format_message = (data) ->
         "<div class='message container-sm'>

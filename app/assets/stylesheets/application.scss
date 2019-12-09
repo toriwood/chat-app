@@ -14,7 +14,7 @@
 @import "bootstrap";
 
 .message {
-  background-color: #7db9d1;
+  background-color: #17a2b8;
   padding: 5px;
   margin:10px;
   border-radius: 5px;
@@ -43,6 +43,10 @@
   margin: 10px;
 }
 
+.user-row {
+  margin: 10px;
+}
+
 .conversation-table {
   background-color: #F0F0F0;
   padding: 10px;
@@ -50,5 +54,24 @@
   border: solid grey 2px;
   max-height: calc(100vh - 200px);
   overflow: auto;
+}
+
+.conversation-container {
+  overflow: auto;
   width: 70%;
+}
+
+.chat-form {
+  input.btn {
+    position: absolute;
+    margin-left: -65px;
+    border-radius: 0;
+  }
+}
+
+.chat-input {
+  width: 100%;
+  height: 40px;
+  border: solid grey 2px;
+  border-top: none;
 }
